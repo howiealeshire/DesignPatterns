@@ -1,3 +1,30 @@
+'''
+Visitor - "Represent an operation to be performed on the elements of an object structure.
+Visitor lets you define a new operation without changing the classes of the elements
+on which it operates."
+
+Basically, you group related methods/functionality in a concrete visitor class, e.g. PricingVisitor, EquipmentVisitor.
+Classes that inherit from a common class, say Equipment, all have related functionality. But, say for some we want to
+calculate pricing for some of them (PricingVisitor) and different, misc. equipment methods (EquipmentVisitor), we group
+those methods in those visitors and for each concrete class in the Equipment subclass hierarchy, they define an accept
+method that takes a visitor parameter, and depending on which visitor is passed in, performs a specific operation defined
+in the concrete visitor.
+
+This is nice because you get to keep related operations in one class, and you don't have to "pollute" each
+class with distinct methods. 
+
+Visitor is classified as a behavioral pattern:
+"Behavioral patterns are concerned with algorithms and the assignment of responsibility
+ties between objects. Behavioral patterns describe not just patterns of objects or classes
+but also the patterns of communication between them. These patterns characterize
+complex control flow that's difficult to follow at run-time. They shift your focus away
+from flow of control to let you concentrate just on the way objects are interconnected."
+
+
+
+'''
+
+
 class Watt:
     pass
 

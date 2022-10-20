@@ -1,7 +1,23 @@
 from creational_base_classes import Door, Room, Wall, Direction
 
+'''
+Abstract Factory:
+Essentially, a way to create objects (related to each other) without specifying their concrete classes.
+Abstract Factory is classified as a creational pattern - a set of patterns for abstracting away the 
+instantiation of objects. 
+Motivation: 
+    Suppose there's a UI toolkit, A.
+    A supports multiple appearance (look-and-feel) standards.
+    These standards have different appearances and behaviours - for use with different widgets e.g. scroll bars, windows, etc.
+    Instantiating the concrete classes of these appearances makes the application inflexible - that is, 
+    it's hard to change the appearance standard later (say, if you were porting to different platforms).
+    Abstract Factory makes it so you don't have to worry about instantiating the concrete classes every time
+    and reaching for a new one is easy.  
+'''
 
 class MazeFactory:
+    # each one of these is a factory method, a way to instantiate different concrete classes
+    # it's easy to create a new factory by subclassing and overriding these methods
   def make_maze(self):
       return MazeFactory()
   def make_wall(self):
@@ -12,6 +28,7 @@ class MazeFactory:
       return Door(r1,r2)
 
 class MazeGame:
+    # the main application
     def create_maze(self,factory):
         maze = factory.make_maze()
         r1 = factory.make_room(1)
@@ -46,6 +63,8 @@ class DoorNeedingSpell(Door):
 
 class EnchantedMazeFactory(MazeFactory):
     def make_room(self,n):
+        # these concrete classes come with useful defaults that the calling client doesn't have to set themselves
+        # removing the burden of instantiation of certain concrete classes
         return EnchantedRoom(n, self.cast_spell())
 
     def make_door(self,r1,r2):

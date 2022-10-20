@@ -1,3 +1,5 @@
+# abstract factory is the only one that actually needs these classes
+
 import abc
 from enum import Enum, auto
 

@@ -1,4 +1,4 @@
-#Stolen from https://stackoverflow.com/questions/31875/is-there-a-simple-elegant-way-to-define-singletons
+#Taken from https://stackoverflow.com/questions/31875/is-there-a-simple-elegant-way-to-define-singletons
 
 class Singleton:
     """

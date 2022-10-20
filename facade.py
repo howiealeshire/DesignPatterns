@@ -1,3 +1,17 @@
+'''
+Facade: a high level interface to a set of interfaces for ease of use.
+
+Motivation:
+    say you have a compiler. This compiler is composed of classes, say Lexer, Parser, InstructionMapper, etc.
+    You could access and compose these classes yourself to compile your program. However,
+    this would be painful to have to do this every time. Having a Facade, say named Compiler,
+    provides a unified interface to a common operation (compile), composed of methods from these interfaces.
+    It also can come with a set of useful defaults and/or parameters, say compiling for a specific architecture.
+    And, the lower level interfaces are still available if you wish to do more complex behavior.
+
+Facade is classified as a structural pattern - concerned with the way classes are composed. 
+'''
+
 class Scanner:
     stream = []
     def __init__(self,stream):
@@ -50,6 +64,7 @@ def generator(bytecode_stream):
 
 class Compiler:
     def Compile(self,input_char_stream,output_bytecode_stream):
+        # this would be annoying to do by hand. Facade makes this easy.
         scanner = Scanner(input_char_stream)
         builder = ProgramNodeBuilder()
         parser = Parser()
