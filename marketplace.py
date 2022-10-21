@@ -1,5 +1,9 @@
 syntax = "proto3";
+/* these are the data structures and the outline for the API responses returned by the microservice. gRPC library takes these and generates the API 
+"Python is a little different — the Python compiler generates a module with a static descriptor of each message type in your .proto, 
+which is then used with a metaclass to create the necessary Python data access class at runtime." - https://developers.google.com/protocol-buffers/docs/proto3
 
+*/
 
 enum BookCategory {
 
